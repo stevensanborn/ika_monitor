@@ -10,7 +10,6 @@ import { type AppRouter } from './routers/_app';
 export const getQueryClient = cache(makeQueryClient);
 const caller = createCallerFactory(appRouter)(createTRPCContext);
 export const { trpc, HydrateClient } = createHydrationHelpers<typeof appRouter>(
-  // @ts-ignore - Suppress tRPC type error for empty router (remove once procedures are added)
   caller,
   getQueryClient,
 );
